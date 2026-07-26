@@ -1,0 +1,62 @@
+# GitLab CI/CD - Auto Deploy to GitLab Pages
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  GIT_DEPTH: 0
+
+cache:
+  paths:
+    - public/
+
+before_script:
+  - echo "🏗️ Starting GitLab CI/CD pipeline for Supreme V7"
+
+build:
+  stage: build
+  image: alpine:latest
+  script:
+    - echo "📦 Building artifacts..."
+    - mkdir -p public
+    - cp index.html public/ || echo "⚠️ index.html not found"
+    - cp 404.html public/ 2>/dev/null || echo "ℹ️ No 404 page"
+    - cp robots.txt public/ 2>/dev/null || echo "⚠️ No robots.txt"
+    - cp sitemap.xml public/ 2>/dev/null || echo "⚠️ No sitemap"
+    - cp -r assets public/ 2>/dev/null || echo "ℹ️ No assets folder"
+    - cp -r verification public/ 2>/dev/null || echo "ℹ️ No verification folder"
+    - cp -r .well-known public/ 2>/dev/null || echo "ℹ️ No well-known folder"
+    - echo "✅ Build complete"
+  artifacts:
+    paths:
+      - public/
+    expire_in: 1 week
+
+test:
+  stage: test
+  image: alpine:latest
+  script:
+    - echo "🧪 Running tests..."
+    - if [ -f "public/index.html" ]; then echo "✅ index.html exists in public"; else echo "❌ index.html missing"; exit 1; fi
+    - echo "✅ All tests passed"
+  dependencies:
+    - build
+
+pages:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - echo "🚀 Deploying to GitLab Pages..."
+    - mkdir -p public
+    - cp -r * public/ 2>/dev/null || true
+    - echo "✅ Deployment complete"
+  artifacts:
+    paths:
+      - public/
+    expire_in: never
+  only:
+    - main
+    - master
+  dependencies:
+    - build
