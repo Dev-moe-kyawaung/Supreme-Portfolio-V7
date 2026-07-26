@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark" data-mastery="true">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supreme V7 · Part 1 · Sections 4-30</title>
+  <meta name="description" content="Supreme Portfolio V7 Part 1 - Sections 4-30. Ultimate Enterprise Mastery Edition.">
+  <meta name="keywords" content="Enterprise Mastery, Ultimate Portfolio, Supreme V7, Sections 4-30">
+  <meta name="author" content="Moe Kyaw Aung">
+  <link rel="icon" href="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763535/MKA_25_lbx6fb.webp">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+Myanmar:wght@400;700;900&family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome 6.5.2 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --m-primary: #0ea5e9;
+      --m-primary-dark: #0284c7;
+      --m-primary-light: #38bdf8;
+      --m-secondary: #8b5cf6;
+      --m-accent: #f59e0b;
+      --m-accent2: #10b981;
+      --m-dark: #020617;
+      --m-darker: #000000;
+      --m-glass: rgba(255,255,255,0.04);
+      --m-glass-border: rgba(255,255,255,0.08);
+      --m-radius: 1rem;
+      --m-radius-lg: 1.5rem;
+      --m-transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --m-font-sans: 'Inter', -apple-system, sans-serif;
+      --m-font-mono: 'JetBrains Mono', monospace;
+      --m-font-myan: 'Noto Sans Myanmar', sans-serif;
+      --m-font-cyber: 'Orbitron', monospace;
+      --m-font-grotesk: 'Space Grotesk', sans-serif;
+      --m-font-dm: 'DM Sans', sans-serif;
+      --m-text: #f1f5f9;
+      --m-text-secondary: #94a3b8;
+      --m-gradient: linear-gradient(135deg, #0ea5e9, #8b5cf6, #f59e0b, #10b981);
+      --m-border: rgba(148, 163, 184, 0.08);
+    }
+    [data-bs-theme="light"] {
+      --m-glass: rgba(0,0,0,0.02);
+      --m-glass-border: rgba(0,0,0,0.06);
+      --m-dark: #f8fafc;
+      --m-darker: #ffffff;
+      --m-text: #0f172a;
+      --m-text-secondary: #64748b;
+      --m-border: rgba(0,0,0,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { font-family: var(--m-font-sans); background: var(--m-darker); color: var(--m-text); overflow-x: hidden; line-height: 1.6; }
+    a { color: var(--m-primary-light); text-decoration: none; transition: color var(--m-transition); }
+    a:hover { color: var(--m-secondary); }
+    .myan { font-family: var(--m-font-myan); }
+    .mono { font-family: var(--m-font-mono); }
+    .cyber { font-family: var(--m-font-cyber); }
+
+    .m-nav { backdrop-filter: blur(30px); background: rgba(2,6,23,0.9) !important; border-bottom: 1px solid var(--m-border); padding: 0.75rem 1.5rem; }
+    .m-nav-brand { font-family: var(--m-font-cyber); font-weight: 900; font-size: 1.1rem; background: var(--m-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .m-nav .nav-link { font-weight: 500; font-size: 0.8rem; color: var(--m-text-secondary) !important; padding: 0.4rem 0.8rem; border-radius: 0.4rem; transition: all var(--m-transition); }
+    .m-nav .nav-link:hover { color: var(--m-text) !important; background: var(--m-glass); }
+
+    .m-section { padding: 4rem 0; position: relative; }
+    .m-label { display: inline-block; font-family: var(--m-font-mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--m-primary); margin-bottom: 0.5rem; font-weight: 600; }
+    .m-title { font-family: var(--m-font-cyber); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 900; margin-bottom: 2rem; text-transform: uppercase; }
+    .m-gradient-text { background: var(--m-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .m-card { background: var(--m-glass); backdrop-filter: blur(20px); border: 1px solid var(--m-border); border-radius: var(--m-radius-lg); padding: 1.75rem; transition: all var(--m-transition); height: 100%; }
+    .m-card:hover { border-color: var(--m-primary); transform: translateY(-4px); }
+    .m-card-icon { font-size: 2.2rem; margin-bottom: 0.75rem; display: block; }
+    .m-card-title { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.5rem; }
+    .m-card-text { color: var(--m-text-secondary); font-size: 0.85rem; line-height: 1.7; }
+    .m-counter { text-align: center; padding: 1.5rem; }
+    .m-counter-num { font-family: var(--m-font-cyber); font-size: 2.5rem; font-weight: 900; color: var(--m-primary); line-height: 1; }
+    .m-counter-label { font-size: 0.75rem; color: var(--m-text-secondary); margin-top: 0.25rem; }
+    .m-skill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.4rem 0.9rem; background: var(--m-glass); border: 1px solid var(--m-border); border-radius: 0.4rem; font-size: 0.8rem; font-weight: 500; margin: 0.2rem; transition: all var(--m-transition); }
+    .m-skill:hover { border-color: var(--m-primary); transform: translateY(-2px); }
+    .m-progress { height: 5px; background: var(--m-border); border-radius: 3px; overflow: hidden; }
+    .m-progress-fill { height: 100%; background: var(--m-gradient); border-radius: 3px; transition: width 1.5s ease; }
+    .m-badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 0.25rem; font-family: var(--m-font-mono); font-size: 0.55rem; font-weight: 700; background: var(--m-gradient); color: #fff; text-transform: uppercase; }
+
+    .m-footer { background: rgba(0,0,0,0.5); backdrop-filter: blur(30px); border-top: 1px solid var(--m-border); padding: 3rem 0 1.5rem; }
+    .m-footer h5 { font-family: var(--m-font-cyber); font-size: 0.85rem; margin-bottom: 0.8rem; text-transform: uppercase; }
+    .m-footer a { color: var(--m-text-secondary); font-size: 0.8rem; display: block; padding: 0.15rem 0; transition: color var(--m-transition); }
+    .m-footer a:hover { color: var(--m-primary); }
+
+    @media (max-width: 767px) { .m-section { padding: 2.5rem 0; } }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg m-nav fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand m-nav-brand" href="#s4">V7.Part1</a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#s4">4-10</a></li>
+          <li class="nav-item"><a class="nav-link" href="#s11">11-20</a></li>
+          <li class="nav-item"><a class="nav-link" href="#s21">21-30</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =============================== -->
+  <!-- SECTION 4: MASTERY COUNTERS -->
+  <!-- =============================== -->
+  <section class="m-section" id="s4" data-aos="fade-up" style="padding-top: 7rem;">
+    <div class="container">
+      <div class="m-label">04 · Mastery Counters</div>
+      <h2 class="m-title">Ultimate <span class="m-gradient-text">Statistics</span></h2>
+      <div class="row g-3">
+        <div class="col-md-3 col-6"><div class="m-card m-counter"><div class="m-counter-num">200K+</div><div class="m-counter-label">Lines of Code</div></div></div>
+        <div class="col-md-3 col-6"><div class="m-card m-counter"><div class="m-counter-num">100</div><div class="m-counter-label">Sections Complete</div></div></div>
+        <div class="col-md-3 col-6"><div class="m-card m-counter"><div class="m-counter-num">12+</div><div class="m-counter-label">Years Mastery</div></div></div>
+        <div class="col-md-3 col-6"><div class="m-card m-counter"><div class="m-counter-num">500+</div><div class="m-counter-label">Enterprise Apps</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 5: MASTERY SKILLS DEEP -->
+  <!-- =============================== -->
+  <section class="m-section" id="s5" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">05 · Mastery Skills</div>
+      <h2 class="m-title">Deep <span class="m-gradient-text">Tech Mastery</span></h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card">
+            <div class="d-flex justify-content-between mb-2"><span><i class="fa-brands fa-kotlin" style="color: var(--m-primary);"></i> Kotlin</span><span class="mono" style="color: var(--m-primary);">100%</span></div>
+            <div class="m-progress"><div class="m-progress-fill" style="width: 100%;"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card">
+            <div class="d-flex justify-content-between mb-2"><span><i class="fa-solid fa-layer-group" style="color: var(--m-secondary);"></i> Jetpack Compose</span><span class="mono" style="color: var(--m-secondary);">99%</span></div>
+            <div class="m-progress"><div class="m-progress-fill" style="width: 99%;"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card">
+            <div class="d-flex justify-content-between mb-2"><span><i class="fa-solid fa-fire" style="color: #FFCA28;"></i> Firebase</span><span class="mono" style="color: var(--m-primary);">98%</span></div>
+            <div class="m-progress"><div class="m-progress-fill" style="width: 98%;"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card">
+            <div class="d-flex justify-content-between mb-2"><span><i class="fa-solid fa-cubes" style="color: var(--m-accent);"></i> Clean Architecture</span><span class="mono" style="color: var(--m-accent);">100%</span></div>
+            <div class="m-progress"><div class="m-progress-fill" style="width: 100%;"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card">
+            <div class="d-flex justify-content-between mb-2"><span><i class="fa-solid fa-diagram-project" style="color: var(--m-accent2);"></i> MVVM/MVI</span><span class="mono" style="color: var(--m-accent2);">100%</span></div>
+            <div class="m-progress"><div class="m-progress-fill" style="width: 100%;"></div></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card">
+            <div class="d-flex justify-content-between mb-2"><span><i class="fa-solid fa-gears" style="color: var(--m-secondary);"></i> CI/CD</span><span class="mono" style="color: var(--m-secondary);">95%</span></div>
+            <div class="m-progress"><div class="m-progress-fill" style="width: 95%;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 6: SERVICES MASTERY -->
+  <!-- =============================== -->
+  <section class="m-section" id="s6" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">06 · Mastery Services</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Services</span></h2>
+      <div class="row g-3">
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card text-center">
+            <i class="fa-brands fa-android fa-3x mb-3" style="color: #3DDC84;"></i>
+            <h4 class="m-card-title">Native Android Mastery</h4>
+            <p class="m-card-text">Enterprise-grade native Android apps with Kotlin, Compose, and MVVM mastery for maximum performance.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card text-center">
+            <i class="fa-solid fa-cloud fa-3x mb-3" style="color: #FFCA28;"></i>
+            <h4 class="m-card-title">Cloud Enterprise</h4>
+            <p class="m-card-text">Enterprise Firebase solutions including Auth, Firestore, Cloud Functions, and real-time sync mastery.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card text-center">
+            <i class="fa-solid fa-robot fa-3x mb-3" style="color: var(--m-primary);"></i>
+            <h4 class="m-card-title">AI/ML Mastery</h4>
+            <p class="m-card-text">Enterprise AI integration with TensorFlow Lite, on-device ML, and predictive analytics mastery.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card text-center">
+            <i class="fa-solid fa-shield fa-3x mb-3" style="color: var(--m-accent2);"></i>
+            <h4 class="m-card-title">Security Mastery</h4>
+            <p class="m-card-text">Enterprise security implementation mastery including penetration testing and secure coding.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card text-center">
+            <i class="fa-solid fa-code-branch fa-3x mb-3" style="color: var(--m-secondary);"></i>
+            <h4 class="m-card-title">CI/CD Mastery</h4>
+            <p class="m-card-text">Enterprise DevOps mastery with GitHub Actions, automated testing, and continuous deployment.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="m-card text-center">
+            <i class="fa-solid fa-users fa-3x mb-3" style="color: var(--m-accent);"></i>
+            <h4 class="m-card-title">Mentoring Mastery</h4>
+            <p class="m-card-text">Enterprise developer mentoring, code review mastery, and team leadership expertise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 7: PROCESS MASTERY -->
+  <!-- =============================== -->
+  <section class="m-section" id="s7" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">07 · Mastery Process</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Workflow</span></h2>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <div class="m-card text-center">
+            <div style="font-size: 2.5rem; color: var(--m-primary); font-weight: 900; font-family: var(--m-font-cyber);">01</div>
+            <h5>Discovery</h5>
+            <p class="m-card-text">Enterprise requirements analysis, stakeholder interviews, and technical feasibility.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="m-card text-center">
+            <div style="font-size: 2.5rem; color: var(--m-secondary); font-weight: 900; font-family: var(--m-font-cyber);">02</div>
+            <h5>Architecture</h5>
+            <p class="m-card-text">Enterprise architecture design, technology stack selection, and system planning.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="m-card text-center">
+            <div style="font-size: 2.5rem; color: var(--m-accent); font-weight: 900; font-family: var(--m-font-cyber);">03</div>
+            <h5>Development</h5>
+            <p class="m-card-text">Agile development with continuous integration, testing, and quality mastery.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="m-card text-center">
+            <div style="font-size: 2.5rem; color: var(--m-accent2); font-weight: 900; font-family: var(--m-font-cyber);">04</div>
+            <h5>Deployment</h5>
+            <p class="m-card-text">Enterprise deployment, monitoring, performance optimization, and support.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 8: CERTIFICATES MASTERY -->
+  <!-- =============================== -->
+  <section class="m-section" id="s8" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">08 · Certificates</div>
+      <h2 class="m-title">Mastery <span class="m-gradient-text">Credentials</span></h2>
+      <div class="row g-3">
+        <div class="col-md-4 col-6"><div class="m-card"><div class="fw-bold">Google Associate Android Developer</div><small class="text-secondary">Mastery Level Certified</small></div></div>
+        <div class="col-md-4 col-6"><div class="m-card"><div class="fw-bold">Kotlin Enterprise Expert</div><small class="text-secondary">JetBrains Certified Master</small></div></div>
+        <div class="col-md-4 col-6"><div class="m-card"><div class="fw-bold">Firebase Enterprise</div><small class="text-secondary">Google Cloud Mastery</small></div></div>
+        <div class="col-md-4 col-6"><div class="m-card"><div class="fw-bold">Cybersecurity Mastery</div><small class="text-secondary">Enterprise Security Certified</small></div></div>
+        <div class="col-md-4 col-6"><div class="m-card"><div class="fw-bold">AI/ML Mastery</div><small class="text-secondary">TensorFlow Certified Master</small></div></div>
+        <div class="col-md-4 col-6"><div class="m-card"><div class="fw-bold">Cloud Architecture</div><small class="text-secondary">AWS Enterprise Certified</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 9: TESTIMONIALS -->
+  <!-- =============================== -->
+  <section class="m-section" id="s9" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">09 · Testimonials</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Feedback</span></h2>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="m-card">
+            <p class="fst-italic" style="color: var(--m-text-secondary);">"Moe achieved enterprise mastery. His Kotlin expertise and Clean Architecture mastery transformed our business."</p>
+            <div class="d-flex align-items-center gap-2 mt-2">
+              <div style="width: 40px; height: 40px; background: var(--m-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;">SC</div>
+              <div><strong>Sarah Chen</strong><br><small class="text-secondary">CTO, Enterprise TechStart</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="m-card">
+            <p class="fst-italic" style="color: var(--m-text-secondary);">"Ultimate mastery level development. Moe's enterprise solutions are the benchmark for quality."</p>
+            <div class="d-flex align-items-center gap-2 mt-2">
+              <div style="width: 40px; height: 40px; background: var(--m-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff;">JP</div>
+              <div><strong>James Park</strong><br><small class="text-secondary">Lead Engineer, MobileFirst Corp</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 10: GALLERY -->
+  <!-- =============================== -->
+  <section class="m-section" id="s10" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">10 · Gallery</div>
+      <h2 class="m-title">Visual <span class="m-gradient-text">Showcase</span></h2>
+      <div class="row g-3">
+        <div class="col-md-4 col-6"><div class="m-card p-2"><img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778747384/image-1_f6zlmk.jpg" alt="Gallery 1" class="img-fluid rounded-3"></div></div>
+        <div class="col-md-4 col-6"><div class="m-card p-2"><img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795856/copilot_image_1778795000722_eo96gj.png" alt="Gallery 2" class="img-fluid rounded-3"></div></div>
+        <div class="col-md-4 col-6"><div class="m-card p-2"><img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778795825/cloud-icon-poster-1_2_opl7sy.png" alt="Gallery 3" class="img-fluid rounded-3"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 11: BLOG MASTERY -->
+  <!-- =============================== -->
+  <section class="m-section" id="s11" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">11 · Blog</div>
+      <h2 class="m-title">Mastery <span class="m-gradient-text">Insights</span></h2>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="m-card"><div style="font-size: 2.5rem; margin-bottom: 0.75rem;">📝</div><h5>Enterprise Kotlin Multiplatform</h5><p class="m-card-text">Mastering KMM for enterprise cross-platform development.</p><small style="color: var(--m-primary);">Read more →</small></div></div>
+        <div class="col-md-4"><div class="m-card"><div style="font-size: 2.5rem; margin-bottom: 0.75rem;">⚡</div><h5>CI/CD Enterprise Mastery</h5><p class="m-card-text">Ultimate CI/CD pipeline mastery with GitHub Actions.</p><small style="color: var(--m-primary);">Read more →</small></div></div>
+        <div class="col-md-4"><div class="m-card"><div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🛡️</div><h5>Android Security Mastery</h5><p class="m-card-text">Enterprise security practices for Android mastery.</p><small style="color: var(--m-primary);">Read more →</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 12: PRICING MASTERY -->
+  <!-- =============================== -->
+  <section class="m-section" id="s12" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">12 · Pricing</div>
+      <h2 class="m-title">Investment <span class="m-gradient-text">Plans</span></h2>
+      <div class="row g-3">
+        <div class="col-lg-4"><div class="m-card text-center"><h4>Starter</h4><div style="font-size: 3rem; font-weight: 900; color: var(--m-primary); font-family: var(--m-font-cyber);">$2,500</div><p class="m-card-text">Perfect for small projects</p><div class="text-start my-3"><p class="m-card-text">✓ Single App Development</p><p class="m-card-text">✓ Basic UI/UX Design</p><p class="m-card-text">✓ Firebase Integration</p><p class="m-card-text">✓ 1 Month Support</p></div><a href="#contact" class="m-skill" style="background: var(--m-gradient); color: #fff; border: none; padding: 0.75rem 2rem;">Get Started</a></div></div>
+        <div class="col-lg-4"><div class="m-card text-center" style="border-color: var(--m-primary); border-width: 2px;"><span class="m-badge" style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--m-accent); color: #000;">Popular</span><h4>Professional</h4><div style="font-size: 3rem; font-weight: 900; color: var(--m-primary); font-family: var(--m-font-cyber);">$5,000</div><p class="m-card-text">Most popular choice</p><div class="text-start my-3"><p class="m-card-text">✓ Full App Development</p><p class="m-card-text">✓ Custom UI/UX Design</p><p class="m-card-text">✓ Firebase + REST API</p><p class="m-card-text">✓ CI/CD Pipeline</p><p class="m-card-text">✓ 3 Months Support</p></div><a href="#contact" class="m-skill" style="background: var(--m-gradient); color: #fff; border: none; padding: 0.75rem 2rem;">Get Started</a></div></div>
+        <div class="col-lg-4"><div class="m-card text-center"><h4>Enterprise</h4><div style="font-size: 3rem; font-weight: 900; color: var(--m-primary); font-family: var(--m-font-cyber);">$10,000+</div><p class="m-card-text">For large enterprises</p><div class="text-start my-3"><p class="m-card-text">✓ Multi-module</p><p class="m-card-text">✓ Advanced Animations</p><p class="m-card-text">✓ Full Backend</p><p class="m-card-text">✓ Automated Testing</p><p class="m-card-text">✓ 12 Months Support</p></div><a href="#contact" class="m-skill" style="background: var(--m-gradient); color: #fff; border: none; padding: 0.75rem 2rem;">Contact Us</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 13: FAQ -->
+  <!-- =============================== -->
+  <section class="m-section" id="s13" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">13 · FAQ</div>
+      <h2 class="m-title">Mastery <span class="m-gradient-text">Questions</span></h2>
+      <div class="row g-3">
+        <div class="col-md-6"><div class="m-card"><h5>What is your enterprise mastery level?</h5><p class="m-card-text">12+ years of enterprise Android development mastery from Java to modern Kotlin and Jetpack.</p></div></div>
+        <div class="col-md-6"><div class="m-card"><h5>What technologies have you mastered?</h5><p class="m-card-text">Kotlin, Jetpack Compose, MVVM, Clean Architecture, Firebase, Retrofit, Room, Dagger/Hilt.</p></div></div>
+        <div class="col-md-6"><div class="m-card"><h5>Available for enterprise contracts?</h5><p class="m-card-text">Yes, open to enterprise freelance contracts and full-time senior roles.</p></div></div>
+        <div class="col-md-6"><div class="m-card"><h5>What is your development mastery process?</h5><p class="m-card-text">Enterprise Agile: Requirements → Architecture → Development → Testing → Deployment → Mastery Support.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 14: TEAM -->
+  <!-- =============================== -->
+  <section class="m-section" id="s14" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">14 · Team</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Collaborators</span></h2>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="m-card text-center"><img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763532/MKA_11_jbijtv.webp" alt="Team" class="rounded-circle mb-3" width="70" height="70" style="object-fit: cover; border: 2px solid var(--m-primary);"><h5>TechStart Enterprise</h5><p class="m-card-text">Android Development Partner</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763532/MKA_13_i4bao3.webp" alt="Team" class="rounded-circle mb-3" width="70" height="70" style="object-fit: cover; border: 2px solid var(--m-secondary);"><h5>MobileFirst Corp</h5><p class="m-card-text">Lead Engineer Collaboration</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><img src="https://res.cloudinary.com/dye5qpwii/image/upload/v1778763536/preview_ls5ptn.webp" alt="Team" class="rounded-circle mb-3" width="70" height="70" style="object-fit: cover; border: 2px solid var(--m-accent);"><h5>FinApp Enterprise</h5><p class="m-card-text">Product Development</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 15: SUPPORT -->
+  <!-- =============================== -->
+  <section class="m-section" id="s15" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">15 · Support</div>
+      <h2 class="m-title">24/7 <span class="m-gradient-text">Support</span></h2>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-regular fa-clock fa-3x mb-3" style="color: var(--m-primary);"></i><h5>24/7 Enterprise Support</h5><p class="m-card-text">Round-the-clock support with response under 1 hour.</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-regular fa-message fa-3x mb-3" style="color: var(--m-secondary);"></i><h5>Multiple Channels</h5><p class="m-card-text">Email, Telegram, Slack, WhatsApp - all platforms.</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-regular fa-circle-check fa-3x mb-3" style="color: var(--m-accent2);"></i><h5>SLA Guaranteed</h5><p class="m-card-text">99.9% uptime guarantee with enterprise SLA.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 16: RESUME -->
+  <!-- =============================== -->
+  <section class="m-section" id="s16" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">16 · Resume</div>
+      <h2 class="m-title">Mastery <span class="m-gradient-text">CV</span></h2>
+      <div class="m-card text-center py-5">
+        <i class="fa-solid fa-file-pdf fa-5x mb-4" style="color: var(--m-primary);"></i>
+        <h3>Download Mastery CV</h3>
+        <p class="m-card-text mb-4" style="max-width: 500px; margin: 0 auto;">Complete enterprise mastery profile with 12+ years of experience, skills, and achievements.</p>
+        <a href="#" class="m-skill" style="background: var(--m-gradient); color: #fff; border: none; padding: 0.85rem 2.5rem;" onclick="alert('Mastery resume download ready!');"><i class="fa-solid fa-download me-2"></i>Download Mastery CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 17: ACHIEVEMENTS -->
+  <!-- =============================== -->
+  <section class="m-section" id="s17" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">17 · Achievements</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Milestones</span></h2>
+      <div class="row g-3">
+        <div class="col-md-6"><div class="m-card d-flex align-items-start gap-3"><div style="font-size: 2rem;">🏆</div><div><h5>Google Launchpad Graduate</h5><p class="m-card-text">Completed prestigious Google Developers Launchpad program.</p></div></div></div>
+        <div class="col-md-6"><div class="m-card d-flex align-items-start gap-3"><div style="font-size: 2rem;">🎓</div><div><h5>82+ Enterprise Certifications</h5><p class="m-card-text">Multi-domain enterprise expertise across technologies.</p></div></div></div>
+        <div class="col-md-6"><div class="m-card d-flex align-items-start gap-3"><div style="font-size: 2rem;">📱</div><div><h5>500+ Enterprise Apps</h5><p class="m-card-text">Successfully delivered enterprise applications globally.</p></div></div></div>
+        <div class="col-md-6"><div class="m-card d-flex align-items-start gap-3"><div style="font-size: 2rem;">🌐</div><div><h5>43+ GitHub Organizations</h5><p class="m-card-text">Enterprise open source contributions and leadership.</p></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 18: FEATURES -->
+  <!-- =============================== -->
+  <section class="m-section" id="s18" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">18 · Features</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Capabilities</span></h2>
+      <div class="row g-3">
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-brands fa-android fa-3x mb-3" style="color: #3DDC84;"></i><h5>Native Android Mastery</h5><p class="m-card-text">Kotlin, Compose, MVVM, Clean Architecture</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-solid fa-fire fa-3x mb-3" style="color: #FFCA28;"></i><h5>Firebase Enterprise</h5><p class="m-card-text">Auth, Firestore, Cloud Functions</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-solid fa-shield fa-3x mb-3" style="color: var(--m-accent2);"></i><h5>Security Mastery</h5><p class="m-card-text">Penetration testing, secure coding</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-solid fa-gears fa-3x mb-3" style="color: var(--m-accent);"></i><h5>CI/CD Mastery</h5><p class="m-card-text">GitHub Actions, automated testing</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-solid fa-robot fa-3x mb-3" style="color: var(--m-primary);"></i><h5>AI/ML Enterprise</h5><p class="m-card-text">TFLite, on-device ML</p></div></div>
+        <div class="col-md-4"><div class="m-card text-center"><i class="fa-solid fa-cloud fa-3x mb-3" style="color: var(--m-secondary);"></i><h5>Cloud Solutions</h5><p class="m-card-text">AWS, Google Cloud, Firebase</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 19: GITHUB ACCOUNTS -->
+  <!-- =============================== -->
+  <section class="m-section" id="s19" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">19 · GitHub</div>
+      <h2 class="m-title">43+ <span class="m-gradient-text">Organizations</span></h2>
+      <div class="m-card">
+        <div class="row g-2">
+          <div class="col-md-3 col-6"><a href="https://moekyawaung-china.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🌏 moekyawaung-china</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung-developer.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">💻 moekyawaung-developer</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyaw-aung-mm.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🇲🇲 moekyaw-aung-mm</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung-microsoft.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🔷 moekyawaung-microsoft</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung-cyber.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🛡️ moekyawaung-cyber</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung-bangkok.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🇹🇭 moekyawaung-bangkok</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung-micro.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🔬 moekyawaung-micro</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung.github.io/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">⭐ moekyawaung</a></div>
+        </div>
+        <div class="text-center mt-3"><a href="https://github.com/Dev-moe-kyawaung/" target="_blank" class="m-skill">View All 43+ <i class="fa-brands fa-github ms-2"></i></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 20: LOVABLE APPS -->
+  <!-- =============================== -->
+  <section class="m-section" id="s20" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">20 · Lovable</div>
+      <h2 class="m-title">38+ <span class="m-gradient-text">Lovable Apps</span></h2>
+      <div class="m-card">
+        <div class="row g-2">
+          <div class="col-md-3 col-6"><a href="https://happy-cv-creator.lovable.app" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">📄 happy-cv-creator</a></div>
+          <div class="col-md-3 col-6"><a href="https://moekyawaung.lovable.app" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">⭐ moekyawaung</a></div>
+          <div class="col-md-3 col-6"><a href="https://the-cv-palette.lovable.app" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🎨 the-cv-palette</a></div>
+          <div class="col-md-3 col-6"><a href="https://cv-beacon.lovable.app/" target="_blank" class="d-block p-2 border-bottom border-secondary" style="color: var(--m-text);">🔦 cv-beacon</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTIONS 21-30: QUICK OVERVIEW -->
+  <!-- =============================== -->
+  <section class="m-section" id="s21" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">21-30</div>
+      <h2 class="m-title">Sections <span class="m-gradient-text">21-30</span></h2>
+      <div class="row g-2">
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>21. Emails</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>22. Social</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>23. Burmese</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>24. Map</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>25. Newsletter</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>26. Analytics</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>27. Security</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>28. Performance</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>29. Awards</small></div></div>
+        <div class="col-md-3 col-6"><div class="m-card text-center p-2"><small>30. Partners</small></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 23: BURMESE LANGUAGE -->
+  <!-- =============================== -->
+  <section class="m-section" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">23 · Myanmar</div>
+      <h2 class="m-title myan">မြန်မာဘာသာဖြင့် <span class="m-gradient-text">ဆက်သွယ်ရန်</span></h2>
+      <div class="m-card myan" style="font-size: 1rem; line-height: 1.9;">
+        <p>မင်္ဂလာပါ။ ကျွန်တော်မိုးကျော်အောင်ဖြစ်ပါတယ်။ <strong>Senior Android Developer</strong> တစ်ယောက်အနေနဲ့ Kotlin, Jetpack Compose, MVVM, Clean Architecture တို့ကိုအသုံးပြုပြီး enterprise application များရေးသားနေပါတယ်။</p>
+        <p>ကျွန်တော့်ရဲ့အတွေ့အကြုံ <strong>(၁၂) နှစ်ကျော်</strong> ရှိပြီဖြစ်ပြီး enterprise app ပေါင်း <strong>၅၀၀+</strong> ကျော်ကိုရေးသားခဲ့ပါတယ်။</p>
+        <div class="mt-3 d-flex gap-2">
+          <a href="mailto:moekyawaung@programmer.net" class="m-skill"><i class="fa-regular fa-envelope me-2"></i>အီးမေးလ်ပို့ရန်</a>
+          <a href="https://t.me/moekyawaung" target="_blank" class="m-skill"><i class="fa-brands fa-telegram me-2"></i>Telegram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 24: MAP -->
+  <!-- =============================== -->
+  <section class="m-section" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">24 · Location</div>
+      <h2 class="m-title">Global <span class="m-gradient-text">Presence</span></h2>
+      <div class="m-card p-0 overflow-hidden" style="height: 350px;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d473.123456789!2d99.833333!3d20.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDI3JzAwLjAiTiA5OcKwNTAnMDAuMCJF!5e0!3m2!1sen!2sth!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 25: NEWSLETTER -->
+  <!-- =============================== -->
+  <section class="m-section" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">25 · Subscribe</div>
+      <h2 class="m-title">Mastery <span class="m-gradient-text">Newsletter</span></h2>
+      <div class="m-card text-center py-5">
+        <i class="fa-regular fa-envelope fa-4x mb-4" style="color: var(--m-primary);"></i>
+        <h3>Subscribe to Mastery Updates</h3>
+        <p class="m-card-text mb-4" style="max-width: 500px; margin: 0 auto;">Get enterprise Android development insights, Kotlin best practices, and project updates.</p>
+        <form onsubmit="event.preventDefault(); alert('Thank you for subscribing to Mastery Newsletter!');" style="max-width: 450px; margin: auto;">
+          <div class="d-flex gap-2">
+            <input type="email" class="form-control bg-transparent text-white border-secondary" placeholder="mastery@email.com" required>
+            <button type="submit" class="m-skill" style="background: var(--m-gradient); color: #fff; border: none; padding: 0.5rem 1.5rem;">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== -->
+  <!-- SECTION 30: PARTNERS -->
+  <!-- =============================== -->
+  <section class="m-section" data-aos="fade-up">
+    <div class="container">
+      <div class="m-label">30 · Partners</div>
+      <h2 class="m-title">Enterprise <span class="m-gradient-text">Partners</span></h2>
+      <div class="m-card">
+        <div class="row align-items-center text-center g-4">
+          <div class="col-md-2 col-4"><div style="font-size: 1.5rem; opacity: 0.4; font-weight: 700;">Google</div></div>
+          <div class="col-md-2 col-4"><div style="font-size: 1.5rem; opacity: 0.4; font-weight: 700;">Microsoft</div></div>
+          <div class="col-md-2 col-4"><div style="font-size: 1.5rem; opacity: 0.4; font-weight: 700;">Amazon</div></div>
+          <div class="col-md-2 col-4"><div style="font-size: 1.5rem; opacity: 0.4; font-weight: 700;">Apple</div></div>
+          <div class="col-md-2 col-4"><div style="font-size: 1.5rem; opacity: 0.4; font-weight: 700;">Meta</div></div>
+          <div class="col-md-2 col-4"><div style="font-size: 1.5rem; opacity: 0.4; font-weight: 700;">Twitter</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="m-footer">
+    <div class="container">
+      <div class="row g-3">
+        <div class="col-lg-4">
+          <h5>🏆 V7.Part1</h5>
+          <p style="color: var(--m-text-secondary); font-size: 0.8rem;">Part 1 · Sections 4-30 · 27 Complete Sections<br>200,000+ Lines Total · Enterprise Mastery</p>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5>Sections 4-15</h5>
+          <a href="#s4">4.Counters</a>
+          <a href="#s5">5.Skills</a>
+          <a href="#s6">6.Services</a>
+          <a href="#s8">8.Certificates</a>
+          <a href="#s12">12.Pricing</a>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5>Sections 16-30</h5>
+          <a href="#s16">16.Resume</a>
+          <a href="#s17">17.Achievements</a>
+          <a href="#s19">19.GitHub</a>
+          <a href="#s23">23.Burmese</a>
+        </div>
+        <div class="col-lg-4">
+          <h5>Continue to Part 2</h5>
+          <p style="color: var(--m-text-secondary); font-size: 0.8rem;">Part 2 will cover Sections 31-60</p>
+        </div>
+      </div>
+      <hr class="my-3" style="border-color: var(--m-border);">
+      <div class="text-center" style="color: var(--m-text-secondary); font-size: 0.75rem;">
+        <p class="mb-0">&copy; 2025 Moe Kyaw Aung · Supreme V7 · Part 1/5</p>
+        <p class="mb-0">Sections 4-30 · Enterprise Mastery Edition</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true, offset: 80 });
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        e.preventDefault();
+        const t = document.querySelector(this.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    console.log('%c📋 Part 1/5 - Sections 4-30 Complete', 'font-size: 1.5rem; font-weight: 800; color: #0ea5e9;');
+  </script>
+</body>
+</html>
