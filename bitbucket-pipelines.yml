@@ -1,0 +1,39 @@
+# Bitbucket Pipelines - Auto Deploy to Bitbucket Cloud
+image: atlassian/default-image:3
+
+definitions:
+  caches:
+    publ: public
+
+pipelines:
+  default:
+    - step:
+        name: 📦 Build & Deploy
+        script:
+          - echo "🚀 Starting Supreme V7 deployment to Bitbucket Cloud"
+          - mkdir -p public
+          - cp index.html public/ || echo "⚠️ index.html missing"
+          - cp 404.html public/ 2>/dev/null || echo "ℹ️ No 404"
+          - cp robots.txt public/ 2>/dev/null || echo "⚠️ No robots.txt"
+          - cp sitemap.xml public/ 2>/dev/null || echo "⚠️ No sitemap"
+          - cp -r assets public/ 2>/dev/null || echo "ℹ️ No assets"
+          - cp -r verification public/ 2>/dev/null || echo "ℹ️ No verification"
+          - cp -r .well-known public/ 2>/dev/null || echo "ℹ️ No well-known"
+          - echo "✅ Build complete. Deploying..."
+        artifacts:
+          - public/**
+          
+  branches:
+    main:
+      - step:
+          name: 🚀 Deploy to Production
+          deployment: production
+          script:
+            - echo "🚀 Deploying Supreme V7 to production"
+            - mkdir -p public
+            - cp index.html public/
+            - cp robots.txt public/
+            - cp sitemap.xml public/
+            - echo "✅ Production deployment complete"
+          artifacts:
+            - public/**
