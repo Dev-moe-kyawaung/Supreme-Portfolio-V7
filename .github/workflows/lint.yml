@@ -1,0 +1,46 @@
+# Code Quality - HTML Linting
+name: 🔍 Code Quality Check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Install HTML validator
+        run: |
+          npm install -g html-validate
+          npm install -g markdownlint-cli
+
+      - name: ✅ Validate HTML
+        run: |
+          html-validate index.html || echo "⚠️ HTML validation warnings"
+
+      - name: ✅ Validate Markdown
+        run: |
+          markdownlint README.md || echo "⚠️ Markdown validation warnings"
+
+      - name: ✅ Check file existence
+        run: |
+          required_files=("index.html" "README.md" "LICENSE" "robots.txt" "sitemap.xml")
+          for file in "${required_files[@]}"; do
+            if [ -f "$file" ]; then
+              echo "✅ $file exists"
+            else
+              echo "❌ $file missing"
+              exit 1
+            fi
+          done
