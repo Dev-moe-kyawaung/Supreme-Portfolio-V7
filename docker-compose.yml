@@ -1,0 +1,31 @@
+# Docker Compose for Supreme Portfolio V7
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: supreme-v7-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./index.html:/usr/share/nginx/html/index.html:ro
+      - ./404.html:/usr/share/nginx/html/404.html:ro
+      - ./robots.txt:/usr/share/nginx/html/robots.txt:ro
+      - ./sitemap.xml:/usr/share/nginx/html/sitemap.xml:ro
+      - ./assets:/usr/share/nginx/html/assets:ro
+      - ./verification:/usr/share/nginx/html/verification:ro
+      - ./CNAME:/usr/share/nginx/html/CNAME:ro
+    restart: unless-stopped
+    networks:
+      - supreme-network
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  supreme-network:
+    driver: bridge
