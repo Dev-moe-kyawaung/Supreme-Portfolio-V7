@@ -1,0 +1,74 @@
+# ===== OS Generated Files =====
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ===== IDE/Editor Files =====
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+.vs/
+*.sublime-project
+*.sublime-workspace
+
+# ===== Version Control =====
+.git/
+.gitkeep
+*.orig
+*.BACKUP.*
+*.BASE.*
+*.LOCAL.*
+*.REMOTE.*
+
+# ===== Node/Development =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ===== Environment Files =====
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+
+# ===== Build/Dist =====
+dist/
+build/
+*.js.map
+*.css.map
+
+# ===== Logs =====
+*.log
+logs/
+log/
+
+# ===== Temp Files =====
+*.tmp
+*.bak
+*.swp
+*~
+
+# ===== Docker =====
+.docker/
+docker-compose.override.yml
+
+# ===== Coverage =====
+coverage/
+.nyc_output/
+
+# ===== Misc =====
+*.pyc
+__pycache__/
+.pytest_cache/
