@@ -1,0 +1,8 @@
+# Codeberg Pages Configuration
+pages:
+  enabled: true
+  branch: main
+  directory: /
+  domain: moekyawaung.codeberg.page
+  ssl: true
+  force_https: true
